@@ -1,6 +1,10 @@
 <main>
   <label for="kingdom">Choose a kingdom:</label>
   <select name="kingdom" id="kingdoms">
-    <option value="volvo">Volvo</option>
+    @if (kingdoms$ | async; as kingdomList) {
+      @for (kingdom of kingdomList.Kingdom; track $index) {
+        <option value='{{kingdom.KingdomCommonName}}'>{{kingdom.KingdomCommonName}}</option>
+      }
+    }
   </select>
 </main>
