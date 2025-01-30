@@ -7,7 +7,7 @@ import { Kingdom, KingdomList } from '../domain/kingdom';
 export class KingdomService {
   constructor(private http: HttpClient) {}
 
-  getKindomList(): Observable<KingdomList> {
+  getKingdomList(): Observable<KingdomList> {
     const kingdomsUrl = `https://apps.des.qld.gov.au/species/?op=getkingdomnames`;
     return this.http.get<KingdomList>(kingdomsUrl);
   }

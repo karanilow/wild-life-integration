@@ -7,4 +7,22 @@
       }
     }
   </select>
+  
+  <label for="class">Choose a class:</label>
+  <select name="class" id="classes">
+    @if (classes$ | async; as classList) {
+      @for (class of classList.Class; track $index) {
+        <option value='{{class.ClassCommonName}}'>{{class.ClassCommonName}}</option>
+      }
+    }
+  </select>
+  
+  <label for="family">Choose a family:</label>
+  <select name="family" id="families">
+    @if (families$ | async; as familyList) {
+      @for (family of familyList.Family; track $index) {
+        <option value='{{family.FamilyCommonName}}'>{{family.FamilyCommonName}}</option>
+      }
+    }
+  </select>
 </main>
