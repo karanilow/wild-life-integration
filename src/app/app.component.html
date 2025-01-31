@@ -1,28 +1,3 @@
 <main>
-  <label for="kingdom">Choose a kingdom:</label>
-  <select #kingdom name="kingdom" id="kingdoms" (change)="onKingdomClick(kingdom.value)">
-    @if (kingdoms$ | async; as kingdomList) {
-      @for (kingdom of kingdomList.Kingdom; track $index) {
-        <option value='{{kingdom.KingdomCommonName}}' (click)="onKingdomClick(kingdom.KingdomCommonName)">{{kingdom.KingdomCommonName}}</option>
-      }
-    }
-  </select>
-  
-  <label for="class">Choose a class:</label>
-  <select #class name="class" id="classes" (change)="onClassClick(class.value)">
-    @if (classes$ | async; as classList) {
-      @for (class of classList.Class; track $index) {
-        <option value='{{class.ClassCommonName}}'>{{class.ClassCommonName}}</option>
-      }
-    }
-  </select>
-  
-  <label for="family">Choose a family:</label>
-  <select #family name="family" id="families" (change)="onFamilyClick(family.value)">
-    @if (families$ | async; as familyList) {
-      @for (family of familyList.Family; track $index) {
-        <option value='{{family.FamilyCommonName}}'>{{family.FamilyCommonName}}</option>
-      }
-    }
-  </select>
+  <app-form />
 </main>
