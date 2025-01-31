@@ -6,13 +6,29 @@ import { AsyncPipe } from '@angular/common';
 import { ClassList } from '../../domain/class';
 import { FamilyList } from '../../domain/family';
 import { ClassService } from '../../services/service.class';
-import { fromSubscribable } from 'rxjs/internal/observable/fromSubscribable';
 import { FamilyService } from '../../services/service.family';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 @Component({
   selector: 'app-form',
-  imports: [AsyncPipe],
+  imports: [
+    AsyncPipe, 
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatCheckboxModule,
+  ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css',
 })
