@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FormComponent } from './form/form.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [FormComponent],
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'wild-life-integration';
+  title = 'Modernize Angular Admin Template';
 }
