@@ -13,5 +13,5 @@ export interface Specie {
     AcceptedCommonName: string,
   }
 export interface SpeciesList {
-    Specie: Specie[]
+    Species: Specie[]
 }

@@ -43,7 +43,6 @@ export class AppFormsComponent implements OnInit {
   public families$!: Observable<FamilyList>;
   public species$! : Observable<SpeciesList>;
 
-
   public kingdomCommonName: string = '';
   public classCommonName: string = '';
   public familyCommonName: string = '';
@@ -78,6 +77,6 @@ export class AppFormsComponent implements OnInit {
   }
   
   PrepareList() {
-    this.species$ = this.specieService.getSpeciesList(this.familyCommonName);
+    this.species$ = this.specieService.getSpeciesList(this.familyCommonName);    
   }
 }
