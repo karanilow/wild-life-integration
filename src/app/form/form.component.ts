@@ -29,6 +29,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatInputModule,
     MatCheckboxModule,
   ],
+  standalone: true,
   templateUrl: './form.component.html',
   styleUrl: './form.component.css',
 })
