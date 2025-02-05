@@ -15,11 +15,8 @@ import { ClassService } from 'src/app/services/service.class';
 import { FamilyService } from 'src/app/services/service.family';
 import { KingdomService } from 'src/app/services/service.kingdom';
 import { AsyncPipe } from '@angular/common';
-
-interface Food {
-  value: string;
-  viewValue: string;
-}
+import { SpeciesList } from 'src/domain/specie';
+import { SpecieService } from 'src/services/service.specie';
 
 @Component({
   selector: 'app-forms',
@@ -42,6 +39,8 @@ export class AppFormsComponent implements OnInit {
   public kingdoms$!: Observable<KingdomList>;
   public classes$!: Observable<ClassList>;
   public families$!: Observable<FamilyList>;
+  public species$! : Observable<SpeciesList>;
+
 
   public kingdomCommonName: string = '';
   public classCommonName: string = '';
@@ -50,6 +49,8 @@ export class AppFormsComponent implements OnInit {
   private kingdomService = inject(KingdomService);
   private classService = inject(ClassService);
   private familyService = inject(FamilyService);
+  private specieService = inject(SpecieService);
+
 
   ngOnInit() {
     this.kingdoms$ = this.kingdomService.getKingdomList();
@@ -70,6 +71,12 @@ export class AppFormsComponent implements OnInit {
   }
 
   onFamilyClick(familyCommonName: string) {
-    console.log(familyCommonName);
+    this.familyCommonName = familyCommonName;
+  }
+  
+  PrepareList() {
+    console.log(this.familyCommonName);
+    this.species$ = this.specieService.getSpeciesList(this.familyCommonName);
+    this.species$.forEach(value => console.log(value));
   }
 }
