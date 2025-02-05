@@ -9,6 +9,8 @@ export interface Specie {
     SpeciesUrl: string;
     IsSupervised: boolean;
     TaxonID: number;
+    ScientificName: string,
+    AcceptedCommonName: string,
   }
 export interface SpeciesList {
     Specie: Specie[]

@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ClassList } from 'src/app/domain/class';
 import { FamilyList } from 'src/app/domain/family';
 import { KingdomList } from 'src/app/domain/kingdom';
@@ -15,8 +15,9 @@ import { ClassService } from 'src/app/services/service.class';
 import { FamilyService } from 'src/app/services/service.family';
 import { KingdomService } from 'src/app/services/service.kingdom';
 import { AsyncPipe } from '@angular/common';
-import { SpeciesList } from 'src/domain/specie';
-import { SpecieService } from 'src/services/service.specie';
+import { Specie, SpeciesList } from 'src/app/domain/specie';
+import { SpecieService } from 'src/app/services/service.specie';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-forms',
@@ -25,6 +26,7 @@ import { SpecieService } from 'src/services/service.specie';
     AsyncPipe, 
     MatFormFieldModule,
     MatSelectModule,
+    MatTableModule,
     FormsModule,
     ReactiveFormsModule,
     MatRadioModule,
@@ -51,6 +53,7 @@ export class AppFormsComponent implements OnInit {
   private familyService = inject(FamilyService);
   private specieService = inject(SpecieService);
 
+  displayedColumns: string[] = ['name'];
 
   ngOnInit() {
     this.kingdoms$ = this.kingdomService.getKingdomList();
@@ -75,8 +78,6 @@ export class AppFormsComponent implements OnInit {
   }
   
   PrepareList() {
-    console.log(this.familyCommonName);
     this.species$ = this.specieService.getSpeciesList(this.familyCommonName);
-    this.species$.forEach(value => console.log(value));
   }
 }

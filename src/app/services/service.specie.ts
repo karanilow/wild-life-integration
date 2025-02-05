@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SpeciesList } from 'src/domain/specie';
+import { SpeciesList } from 'src/app/domain/specie';
 
 @Injectable({ providedIn: 'root' })
 export class SpecieService {
