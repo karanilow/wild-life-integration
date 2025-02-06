@@ -18,6 +18,7 @@ import { AsyncPipe } from '@angular/common';
 import { Specie, SpeciesList } from 'src/app/domain/specie';
 import { SpecieService } from 'src/app/services/service.specie';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-forms',
@@ -33,6 +34,7 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    MatIconModule,
     MatCheckboxModule,
   ],
   templateUrl: './forms.component.html',
@@ -52,7 +54,7 @@ export class AppFormsComponent implements OnInit {
   private familyService = inject(FamilyService);
   private specieService = inject(SpecieService);
 
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = ['name', 'action'];
 
   ngOnInit() {
     this.kingdoms$ = this.kingdomService.getKingdomList();
