@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SpeciesList } from 'src/app/domain/specie';
+import { SpecieDetail, SpeciesList } from 'src/app/domain/specie';
 
 @Injectable({ providedIn: 'root' })
 export class SpecieService {
@@ -10,5 +10,10 @@ export class SpecieService {
   getSpeciesList(familyCommonName: string): Observable<SpeciesList> {
     const speciesUrl = `https://apps.des.qld.gov.au/species/?op=getspecies&family=${familyCommonName}`;
     return this.http.get<SpeciesList>(speciesUrl);
+  }
+
+  getSpecie(taxonID: string): Observable<SpecieDetail> {
+    const speciesUrl = `https://apps.des.qld.gov.au/species/?op=getspeciesinformation&taxonid=${taxonID}`;
+    return this.http.get<SpecieDetail>(speciesUrl);
   }
 }
