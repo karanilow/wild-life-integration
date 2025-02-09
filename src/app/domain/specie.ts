@@ -11,6 +11,7 @@ export interface Specie {
     TaxonID: number;
     ScientificName: string,
     AcceptedCommonName: string,
+    PestStatus: string,
     Image: Image[]
   }
 export interface SpeciesList {
@@ -22,5 +23,7 @@ export interface SpecieDetail {
 export interface Image {
   Type: string,
   Format: string,
-  URL: string
+  URL: string,
+  Title: string,
+  Reference: string
 }
