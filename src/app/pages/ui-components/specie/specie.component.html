@@ -2,4 +2,7 @@
   Hello World @if (specieList$ | async; as species) {
   {{ species.Species.TaxonID }}
   }
+  @if (imgUrl$ | async; as url) {
+    <img src="{{ url }}" alt="imgSrc" class="w-100" mat-card-image />
+    }
 </h1>

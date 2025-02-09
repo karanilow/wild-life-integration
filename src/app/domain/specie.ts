@@ -10,11 +10,17 @@ export interface Specie {
     IsSupervised: boolean;
     TaxonID: number;
     ScientificName: string,
-    AcceptedCommonName: string
+    AcceptedCommonName: string,
+    Image: Image[]
   }
 export interface SpeciesList {
     Species: Specie[]
 }
 export interface SpecieDetail {
   Species : Specie
+}
+export interface Image {
+  Type: string,
+  Format: string,
+  URL: string
 }
