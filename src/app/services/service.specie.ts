@@ -16,12 +16,4 @@ export class SpecieService {
     const speciesUrl = `https://apps.des.qld.gov.au/species/?op=getspeciesinformation&taxonid=${taxonID}`;
     return this.http.get<SpecieDetail>(speciesUrl);
   }
-
-  getSpeciePicture(url: string | undefined): string {
-    if(url){
-      this.http.get(url);
-      return url
-    } 
-    return 'no Image';
-  }
 }

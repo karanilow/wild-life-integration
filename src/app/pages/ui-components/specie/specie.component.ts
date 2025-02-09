@@ -27,10 +27,8 @@ export class AppSpecieComponent implements OnInit {
     )); 
 
     this.imgUrl$ = this.specieList$.pipe(
-      map((specie) => this.specieService.getSpeciePicture(ImageUrlForSpecie(specie)))
+      map((specie) => ImageUrlForSpecie(specie))
     );
-
-
   };
 }
 
