@@ -1,43 +1,48 @@
 @if (specieList$ | async; as species) {
+<div class="row">
+  @if (imgUrl$ | async; as url) {
 
-<div class="col-lg-6">
-  <mat-card class="b-1 shadow-none">
-    <mat-card-header>
-      <mat-card-title>{{ species.Species.ScientificName }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="b-t-1">
-      <mat-list role="list">
-        <mat-list-item role="listitem">Commonly called {{ species.Species.AcceptedCommonName }}</mat-list-item>
-        <mat-list-item role="listitem">
-          @if(species.Species.IsSupervised) {
-          <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12">Under Supervision</span>
-          }
-          @else {
-          <span class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12">Unsupervised</span>
-          }
-        </mat-list-item>
-        <mat-list-item role="listitem">
-          @if(species.Species.PestStatus == 'Poisonous') {
-          <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12">{{ species.Species.PestStatus |
-            titlecase }}</span>
-          }
-          @else {
-          <span class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12">{{ species.Species.PestStatus |
-            titlecase }}</span>
-          }
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
-</div>
-<div class="col-lg-6">
-  <mat-card class="b-1 shadow-none">
-    <mat-card-content class="b-t-1">
-      @if (imgUrl$ | async; as url) {
+  @if (url) {
+  <div class="col-lg-6">
+    <mat-card class="b-1 cardWithShadow theme-card">
+      <mat-card-content class="b-t-1">
         <img src="{{ url }}" alt="imgSrc" class="w-100" mat-card-image />
-        }
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  }
+  }
+  <div class="col-lg-6">
+    <mat-card class="b-1 cardWithShadow theme-card">
+      <mat-card-header>
+        <mat-card-title>{{ species.Species.ScientificName }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="b-t-1">
+        <mat-list role="list">
+          <mat-list-item role="listitem">Common name : "{{ species.Species.AcceptedCommonName }}"</mat-list-item>
+          <mat-list-item role="listitem">
+            Supervision status :
+            @if(species.Species.IsSupervised) {
+            <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12">Under Supervision</span>
+            }
+            @else {
+            <span class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12">Unsupervised</span>
+            }
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            Pest status :
+            @if(species.Species.PestStatus == 'Poisonous') {
+            <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12">{{ species.Species.PestStatus |
+              titlecase }}</span>
+            }
+            @else {
+            <span class="bg-light-success text-success rounded f-w-600 p-6 p-y-4 f-s-12">{{ species.Species.PestStatus |
+              titlecase }}</span>
+            }
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-
 }@else {<h1>Loading ...</h1>}
