@@ -14,26 +14,7 @@ export const UiComponentsRoutes: Routes = [
   {
     path: '',
     children: [
-      {
-        path: 'badge',
-        component: AppBadgeComponent,
-      },
-      {
-        path: 'chips',
-        component: AppChipsComponent,
-      },
-      {
-        path: 'lists',
-        component: AppListsComponent,
-      },
-      {
-        path: 'menu',
-        component: AppMenuComponent,
-      },
-      {
-        path: 'tooltips',
-        component: AppTooltipsComponent,
-      },
+     
       {
         path: 'forms',
         component: AppFormsComponent,
@@ -41,11 +22,7 @@ export const UiComponentsRoutes: Routes = [
       {
         path: 'specie/:id',
         component: AppSpecieComponent,
-      },
-      {
-        path: 'tables',
-        component: AppTablesComponent,
-      },
+      }
     ],
   },
 ];

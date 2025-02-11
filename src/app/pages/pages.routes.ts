@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { StarterComponent } from './starter/starter.component';
+import { AppFormsComponent } from './ui-components/forms/forms.component';
 
 export const PagesRoutes: Routes = [
   {
     path: '',
-    component: StarterComponent,
+    component: AppFormsComponent,
     data: {
       title: 'Starter',
       urls: [
-        { title: 'Dashboard', url: '/dashboard' },
+        { title: 'Form', url: '/ui-components/forms' },
         { title: 'Starter' },
       ],
     },
