@@ -13,12 +13,12 @@ This interface allows to explore the queensland's wildlife api.
 
 3. Run the application with the command `npm start` or `ng serve` in the `wild-life-integration` folder.
 
-/// IMAGE
+![Image of the Home screeen](img/InitialHome.png)
 
 ## Features
 - Dynamic dropdownlists of "Kingdom", "Class" and "Family"
 - List Species by Family.
+![Image of the Home screeen](img/List.png)
 - Visualize the detail of a specie : it's common name, supervision status and pest status.
-
-/// IMAGE
+![Image of the Home screeen](img/Detail.png)
 
